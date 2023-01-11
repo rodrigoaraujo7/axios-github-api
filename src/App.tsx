@@ -12,20 +12,23 @@ type Repository = {
 export const App = () => {
   const {
     data: repositories,
+    error,
     isFetching
   } = useFetch<Repository[]>('https://api.github.com/users/rodrigoaraujo7/repos')
 
   return (
     <ul>
       { isFetching && <strong>Loading...</strong>}
-      {repositories?.map(repo => {
-        return (
-          <li key={repo.full_name}>
-            <strong>{repo.full_name}</strong>
-            <p>{repo.description}</p>
-          </li>
-        )
-      })}
+      { error ? (<h1>Error D=</h1>) : (
+        repositories?.map(repo => {
+          return (
+            <li key={repo.full_name}>
+              <strong>{repo.full_name}</strong>
+              <p>{repo.description}</p>
+            </li>
+          )
+        })
+      ) }
     </ul>
   )
 }
