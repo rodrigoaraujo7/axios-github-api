@@ -14,7 +14,7 @@ export const App = () => {
     data: repositories,
     error,
     isFetching
-  } = useFetch<Repository[]>('https://api.github.com/users/rodrigoaraujo7/repos')
+  } = useFetch<Repository[]>('users/rodrigoaraujo7/repos')
 
   return (
     <ul>
