@@ -1,4 +1,3 @@
-import './App.css'
 import { useFetch } from './hooks/useFetch'
 
 import { GlobalStyles } from './styles/global'
@@ -20,24 +19,21 @@ export const App = () => {
   return (
     <div>
       <GlobalStyles />
-      <ul>
-        { isFetching && <strong>Loading...</strong>}
-        { error ? (<h1>Error D=</h1>) : (
-          <>
-            <h1>{user} repos</h1>
-            {repositories?.map(repo => {
-              return (
-                <div>
-                  <li key={repo.full_name}>
-                    <strong>{repo.full_name}</strong>
-                    <p>{repo.description}</p>
-                  </li>
-                </div>
-              )
-            })}
-          </>
-        )}
-      </ul>
+      { isFetching && <strong>Loading...</strong>}
+      { error ? (<h1>User not found D=</h1>) : (
+        <>
+          <h1>{user} repos</h1>
+          {repositories?.map(repo => {
+            return (
+              <div>
+                <strong>{repo.full_name}</strong>
+                <p>{repo.description}</p>
+                <br />
+              </div>
+            )
+          })}
+        </>
+      )}
     </div>
   )
 }
