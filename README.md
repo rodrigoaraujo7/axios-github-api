@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  React Router Test for study purposes.
+  Consuming a Github API with Axios for study purposes.
 </p>
 
 <p align="center">
